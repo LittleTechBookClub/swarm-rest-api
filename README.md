@@ -21,4 +21,4 @@ Create an application.yml in the src/main/resources folder(the one with applicat
 and copy it into both of the application.yml files in this format:
 OPENAI_API_KEY: <YOUR-GENERATED-KEY-GOES-HERE>
 
-ABSOLUTELY DO NOT COPY THIS KEY INTO ANY OTHER FILE OR COMMIT CODE WITH KEYS IN IT.
+ABSOLUTELY DO NOT COPY THIS KEY INTO ANY OTHER FILE, OR COMMIT CODE WITH KEYS IN IT.

@@ -3,8 +3,6 @@ name: Java CI with Gradle
 on:
   pull_request:
     branches: [ main ]
-    push:
-    branches: [ main ]
 
 jobs:
   build:
@@ -23,13 +21,3 @@ jobs:
       run: ./gradlew build
     - name: Run tests
       run: ./gradlew test
-
-       # Job makes sure that push request to main not allowed
-  prevent_direct_push:
-    if: github.event_name == 'push' # This job runs only for push events
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fail if direct push to main is detected
-        run: |
-          echo "Direct pushes to the main branch are not allowed. Please open a pull request." >&2
-          exit 1

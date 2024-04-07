@@ -21,3 +21,19 @@ jobs:
       run: ./gradlew build
     - name: Run tests
       run: ./gradlew test
+
+  assign-reviewers:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Assign Reviewers
+          uses: actions/github-script@v5
+          with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+              github.rest.pulls.requestReviewers({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.payload.pull_request.number,
+                reviewers: ['MelisaIm', 'lindentree']
+              });

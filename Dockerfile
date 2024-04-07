@@ -1,5 +1,5 @@
 # Use the official OpenJDK image as the base image
-FROM openjdk:17-alpine as build
+FROM eclipse-temurin:17 as build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY src src
 RUN ./gradlew build -x test
 
 # Start a new build stage
-FROM openjdk:17-alpine
+FROM eclipse-temurin:17
 
 # Set the working directory in this new stage
 WORKDIR /app

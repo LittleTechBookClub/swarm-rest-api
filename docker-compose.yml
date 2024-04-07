@@ -1,6 +1,6 @@
 # version - Specifies the version of the Docker Compose file format.
 # services - Defines the services to be created when docker-compose up is run.
-# build - Tells Docker-Compose to build an image using the Dockerfile in the current directory
+# build - Tells Docker-Compose to build an image using the Dockerfile in the current directory.
 # app - The name of the services to be created when docker-compose up is run.
 # ports - Maps port 8080 of the host to port 8080 of the container.
 version: '3.8'

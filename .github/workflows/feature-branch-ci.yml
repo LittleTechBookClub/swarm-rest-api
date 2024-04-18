@@ -1,0 +1,28 @@
+name: Feature Branch CI
+
+on:
+  push:
+    branches:
+      - '*-*-*'  # Matches branches with at least two hyphens, e.g., username-issuenumber-description
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # Example: Setup Java (customize according to your project's needs)
+    - name: Set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'adopt'
+
+    # Add more steps for your build and test process
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
+    - name: Run tests
+      run: ./gradlew test

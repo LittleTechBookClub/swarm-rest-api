@@ -19,8 +19,8 @@ public class OpenAIController {
     }
 
     @PostMapping("/process-inspection")
-    public String promptAI(@RequestBody PromptRequest prompt) {
-        System.out.println(prompt.getPrompt());
-        return openaiservice.prompt(prompt.getPrompt());
+    public String promptAI(@RequestBody PromptRequest request) {
+        System.out.println(request.getPrompt());
+        return openaiservice.prompt(request.getPrompt());
     }
 }

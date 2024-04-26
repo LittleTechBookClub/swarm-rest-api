@@ -1,6 +1,11 @@
 package com.littletech.swarmrestapi;
 
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +19,7 @@ import com.littletech.swarmrestapi.service.OpenAIService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@ExtendWith(MockitoExtension.class)
 public class OpenAIControllertest {
 
     @Autowired
@@ -22,11 +28,16 @@ public class OpenAIControllertest {
     @MockBean
     private OpenAIService openAIService;
 
+    @BeforeEach
+    public void setup() {
+        when(openAIService.prompt("test")).thenReturn("Success");
+    }
+
     @Test
     public void testPromptAI() throws Exception {
         String requestBody = "{\"prompt\":\"test\"}";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/prompt")
+        mockMvc.perform(MockMvcRequestBuilders.post("/process-inspection")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBody))
                 .andExpect(MockMvcResultMatchers.status().isOk());

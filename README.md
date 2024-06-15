@@ -41,6 +41,19 @@ sudo docker compose up
 3. **Accessing The Application*** You should be able to curl or check this url in browser: http://localhost:8080
 and see "Hello Swarm!"
 
+Unit Tests:
+
+
+
+OpenAI API Call Example:
+
+*IMPORTANT*
+Create an application.yml in the src/main/resources folder(the one with application.properties) AND another application.yml in test/resources. Then get an OpenAI api key from their website
+and copy it into both of the application.yml files in this format:
+OPENAI_API_KEY: <YOUR-GENERATED-KEY-GOES-HERE>
+
+ABSOLUTELY DO NOT COPY THIS KEY INTO ANY OTHER FILE, OR COMMIT CODE WITH KEYS IN IT.
+  
 ## Shutting Down
 
 To stop and remove the containers, use the following command:

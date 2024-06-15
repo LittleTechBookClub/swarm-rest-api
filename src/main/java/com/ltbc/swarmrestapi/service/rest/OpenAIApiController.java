@@ -1,6 +1,5 @@
 package com.ltbc.swarmrestapi.service.rest;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ltbc.swarmrestapi.service.beesinfo.BeesInfoDetails;
 import com.ltbc.swarmrestapi.service.rest.request.PromptRequest;
 import org.slf4j.Logger;

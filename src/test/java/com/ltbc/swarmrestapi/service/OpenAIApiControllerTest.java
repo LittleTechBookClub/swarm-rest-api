@@ -1,4 +1,4 @@
-package com.littletech.swarmrestapi;
+package com.ltbc.swarmrestapi.service;
 
 import static org.mockito.Mockito.when;
 
@@ -15,22 +15,26 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.littletech.swarmrestapi.service.OpenAIService;
+import java.io.IOException;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @ExtendWith(MockitoExtension.class)
-public class OpenAIControllertest {
+public class OpenAIApiControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private OpenAIService openAIService;
+    private final SwarmRestApiService swarmRestApiService;
+
+    public OpenAIApiControllerTest(SwarmRestApiService swarmRestApiService) {
+        this.swarmRestApiService = swarmRestApiService;
+    }
 
     @BeforeEach
-    public void setup() {
-        when(openAIService.prompt("test")).thenReturn("Success");
+    public void setup() throws IOException, InterruptedException {
+        when(swarmRestApiService.sendPromptToOpenAi("test")).thenReturn(null); // TODO: remove null and fix test
     }
 
     @Test
@@ -38,8 +42,8 @@ public class OpenAIControllertest {
         String requestBody = "{\"prompt\":\"test\"}";
 
         mockMvc.perform(MockMvcRequestBuilders.post("/process-inspection")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(requestBody))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestBody))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

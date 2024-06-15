@@ -10,6 +10,10 @@ COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
 
+# Ensure the gradlew script uses Unix line endings and is executable
+RUN apt-get update && apt-get install -y dos2unix && dos2unix gradlew
+RUN chmod +x gradlew
+
 # Copy the source code into the container
 COPY src src
 

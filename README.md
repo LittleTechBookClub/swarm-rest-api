@@ -43,14 +43,9 @@ and see "Hello Swarm!"
 
 Unit Tests:
 
-
-
 OpenAI API Call Example:
 
-*IMPORTANT*
-Create an application.yml in the src/main/resources folder(the one with application.properties) AND another application.yml in test/resources. Then get an OpenAI api key from their website
-and copy it into both of the application.yml files in this format:
-OPENAI_API_KEY: <YOUR-GENERATED-KEY-GOES-HERE>
+IMPORTANT Create an application.yml in the src/main/resources folder(the one with application.properties) AND another application.yml in test/resources. Then get an OpenAI api key from their website and copy it into both of the application.yml files in this format: OPENAI_API_KEY:
 
 ABSOLUTELY DO NOT COPY THIS KEY INTO ANY OTHER FILE, OR COMMIT CODE WITH KEYS IN IT.
   

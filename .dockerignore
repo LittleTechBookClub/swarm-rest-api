@@ -1,0 +1,70 @@
+# Ignore .git directory
+.git
+
+# Ignore any .env files
+.env
+application*.yml
+application.yml
+
+# Ignore build directories
+build/
+target/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Ignore Gradle cache
+.gradle/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore the Git hooks directory
+.git/hooks/
+
+# Ignore Docker-related files
+docker-compose.yml
+Dockerfile
+
+# Ignore README and other documentation files
+README.md
+HELP.md
+
+# Ignore setup script and pre-push hook
+setup.sh
+pre-push
+
+# STS specific files
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# NetBeans specific files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/

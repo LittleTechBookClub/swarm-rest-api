@@ -3,9 +3,12 @@
 # build - Tells Docker-Compose to build an image using the Dockerfile in the current directory.
 # app - The name of the services to be created when docker-compose up is run.
 # ports - Maps port 8080 of the host to port 8080 of the container.
+# environment - references variables for secret keys in .env file
 version: '3.8'
 services:
   app:
     build: .
     ports:
       - "8080:8080"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}

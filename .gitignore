@@ -40,3 +40,4 @@ out/
 ### Environment Variable Files ###
 application*.yml
 application.yml
+.env
